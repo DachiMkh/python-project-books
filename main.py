@@ -2,6 +2,7 @@ class Library:
 
     def __init__(self):
         #ქმნის dictionary-ს წიგნების ბიბლიოთეკისთვის
+        # amis gadatana ar dagaviwydes
         self.books = {
             '1': {'name': 'learn python3 the hard way 2018', 'availability': 'free'},
             '2': {'name': 'Red Rising', 'availability': 'free'},
@@ -56,3 +57,7 @@ class Library:
         return "please enter a name of a book from the books displayed."
         # თუ წიგნი არ არის აღებული ან სახელი არ არის სწორად ამ მესიჯს დააბრუნებს
 
+    def view_books(self):
+        # ნახავს აღებულ წიგნებს ამ ფუნქციის დახმარებით
+        borrowed_books = []
+        for book_id, book_data in self.books.items():
