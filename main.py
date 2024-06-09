@@ -61,3 +61,8 @@ class Library:
         # ნახავს აღებულ წიგნებს ამ ფუნქციის დახმარებით
         borrowed_books = []
         for book_id, book_data in self.books.items():
+            if book_data['availability'] == 'unavailable':
+                borrowed_books.append(f"BookID: {book_id}, name: {book_data['name']}")
+            # if the book is unavailable it will be appended to the borrowed books list
+        return borrowed_books
+
