@@ -42,3 +42,17 @@ class Library:
                         return f'{book_data["name"]} is already borrowed.'
             return 'please enter a name of a book from the books displayed.'
             #იმ შემთხვევაში თუ წიგნი უკვე აღებულია ან თუ შეყვანილი სახელი არასწორაი ამ მესიჯს დაპრინტავს
+
+
+    def return_book(self, user, book_name):
+        #ეს ფუნქცია აბრუმებს წიგნებს
+        for book_id, book_data in self.books.items():
+            if book_data["name"].lower() == book_name.lower():
+                if book_data['availability'] == 'unavailable':
+                    self.books[book_id]['availability'] = 'free'
+                    return f'{user} has returned {book_data["name"]}'
+                else:
+                    return f'{book_data["name"]} is not borrowed by you.'
+        return "please enter a name of a book from the books displayed."
+        # თუ წიგნი არ არის აღებული ან სახელი არ არის სწორად ამ მესიჯს დააბრუნებს
+
