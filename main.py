@@ -66,3 +66,50 @@ class Library:
             # if the book is unavailable it will be appended to the borrowed books list
         return borrowed_books
 
+
+def func():
+    library = Library()
+
+    # სახელის მიღება
+    user = input('enter your username: ')
+    print("Welcome to Our library, here you will find a wide range of bestselling books.")
+
+    while True:
+        #  while loop-ი იმუშავებს სანამ უზერი არ გამოვა კოდიდან
+        print('=============')
+        print("1. Display available books")
+        print("2. Borrow a book")
+        print("3. Return a book")
+        print("4. View your books")
+        print("5. Exit")
+        print("=============")
+
+        choice = input("Enter a number corresponding to the commands listed above: ")
+        if choice == '1':  # displays available books
+            library.display_books()
+        elif choice == '2':  # allows user to borrow a book
+            book_name = input("enter the name of the book you would like to borrow: ")
+            print(library.borrow_book(user, book_name))
+        elif choice == '3':  # allows user to return a book
+            book_name = input("enter the name of the book you would like to return: ")
+            print(library.return_book(user, book_name))
+        elif choice == '4':  # displays users borrowed books
+            borrowed_books = library.view_books()
+            if borrowed_books:
+                print("list of books you borrowed:")
+                for books in borrowed_books:
+                    print(books)
+            else:
+                "you have not borrowed any books, press 2 in the main menu and enjoy a our selection of books"
+        elif choice == '5':  # exits the program
+            print('Exiting, thank you for using our library system.')
+            break
+        else:
+            print("Please enter a choice ranging from 1-5.")  # in case user inputs an invalid choice
+
+
+if __name__ == "__main__":
+    func()
+# checks if the program is being run directly, if so it will return true and start the main function titled "func"
+
+
